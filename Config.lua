@@ -17,9 +17,9 @@ errorFilter = {
 -- Highlights nameplates for these units by coloring the healthbar
 -- http://www.wowwiki.com/WoW_Constants/Errors
 unitFilter = {
-	'Cult Fanatic',		-- Lady Deathwhisper, ICC
-	'Reanimated Fanatic',	-- Lady Deathwhisper, ICC
-	'Empowered Fanatic',
+	"Cult Fanatic",		-- Lady Deathwhisper, ICC
+	"Reanimated Fanatic",	-- Lady Deathwhisper, ICC
+	"Empowered Fanatic",
 }
 -- Sets the bar color of the highlighted nameplates
 highlightColor = {r = 1, g = 0, b = 1}
