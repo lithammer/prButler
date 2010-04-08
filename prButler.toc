@@ -1,6 +1,6 @@
 ## Interface: 30300
-## Title: |cffFF33FFpr|rButler
-## Version: 0.85
+## Title: |cff669933pr|rButler
+## Version: 0.90
 ## Author: Peter
 ## Notes: Makes life (WoW) easier for you
 
@@ -8,11 +8,9 @@ prButler.lua
 Config.lua
 
 modules\acceptlootwindow.lua
-modules\autorepair.lua
-modules\buffreminder.lua
 modules\compare.lua
 modules\errors.lua
 modules\invite.lua
-modules\junk.lua
 modules\loot.lua
+modules\merchant.lua
 modules\specswitchfilter.lua
