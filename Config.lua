@@ -1,3 +1,12 @@
+-- Accepts invites from friends and guild mates
+autoAcceptInvite = true
+
+-- Add a button to the loot frame that announces loot to raid chat
+announceLootButton = true
+
+-- Filters the "gained a new ability" spam when switching spec and replaces it with a short informative message
+specSwitchFilter = true
+
 -- Automatically sell grey items when visiting a vendor
 sellGrays = true
 
@@ -5,7 +14,7 @@ sellGrays = true
 autoRepair = true
 
 -- Use guild bank funds for repair (if possible)
---useGuildBank = false
+useGuildBank = false
 
 -- Error filter i.e. what errors NOT to show
 errorFilter = {
