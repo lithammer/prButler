@@ -1,3 +1,5 @@
+if not announceLootButton then return end
+
 local f = CreateFrame("Button", nil, LootFrame, "UIPanelButtonTemplate")
 f:SetPoint("TOPRIGHT", LootFrame, -80, -43)
 f:SetFrameStrata("HIGH")
