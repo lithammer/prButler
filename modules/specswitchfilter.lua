@@ -1,3 +1,5 @@
+if not specSwitchFilter then return end
+
 local spamFilterMatch1 = string.gsub(ERR_LEARN_ABILITY_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch2 = string.gsub(ERR_LEARN_SPELL_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch3 = string.gsub(ERR_SPELL_UNLEARNED_S:gsub('%.', '%.'), '%%s', '(.*)')
@@ -62,10 +64,8 @@ HideSpam:SetScript("OnEvent", function( self, event, ...)
 		local activeGroupNum = GetActiveTalentGroup()
 		if specCache[activeGroupNum].totalPointsSpent > 1 then
 			local s = specCache[activeGroupNum];
-			print("Switched to |cff6adb54".. s.specName .." ("..
-			s[1].pointsSpent .."/"..
-			s[2].pointsSpent .."/"..
-			s[3].pointsSpent ..")|r talent spec.")
+			local text = "Switched to |cffffffff".. s.specName .." ("..s[1].pointsSpent .."/"..s[2].pointsSpent .."/"..s[3].pointsSpent ..")|r talent spec."
+			DEFAULT_CHAT_FRAME:AddMessage(text, 255, 255, 0)
 		end
 		
 		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_SYSTEM", self.filter)
