@@ -1,4 +1,3 @@
-
 local orig1 = GameTooltip:GetScript("OnTooltipSetItem")
 GameTooltip:SetScript("OnTooltipSetItem", function(self, ...)
 	if not ShoppingTooltip1:IsVisible() and not self:IsEquippedItem() then GameTooltip_ShowCompareItem(self, 1) end
@@ -24,6 +23,5 @@ end)
 ItemRefTooltip:SetScript("OnDragStop", function(self)
 	self:StopMovingOrSizing()
 	ValidateFramePosition(self)
-	local _, link = self:GetItem()
-	SetTips(link, self, ItemRefShoppingTooltip1, ItemRefShoppingTooltip2, ItemRefShoppingTooltip3)
+	GameTooltip_ShowCompareItem(self, 1)
 end)
