@@ -1,4 +1,4 @@
--- Accepts invites from friends and guild mates, also sends a /who request of the invitee
+-- Accepts invites from friends and guild mates, also sends a /who request of the inviter
 autoAcceptInvite = true
 
 -- Add a button to the loot frame that announces loot to raid chat

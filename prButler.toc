@@ -1,4 +1,4 @@
-## Interface: 30300
+## Interface: 40000
 ## Title: |cff669933pr|rButler
 ## Version: 0.90
 ## Author: Peter
@@ -10,7 +10,7 @@ Config.lua
 modules\acceptlootwindow.lua
 modules\compare.lua
 modules\errors.lua
-modules\invite.lua
+##modules\invite.lua
 modules\loot.lua
 modules\merchant.lua
 modules\specswitchfilter.lua

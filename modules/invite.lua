@@ -1,59 +1,44 @@
 if not autoAcceptInvite then return end
 
---------------------------------------------------------------------
--- CREDIT : FatalEntity 
---------------------------------------------------------------------
+local f = CreateFrame("Frame")
+f:RegisterEvent("PARTY_INVITE_REQUEST")
+f:RegisterEvent("PARTY_MEMBERS_CHANGED")
 
-local AddOn = CreateFrame("Frame")
-local OnEvent = function(self, event, ...) self[event](self, event, ...) end
-AddOn:SetScript("OnEvent", OnEvent)
+local hidestatic -- used to hide static popup when auto-accepting
 
-------------------------------------------------------------------------
--- Auto accept invite
-------------------------------------------------------------------------
-
-local function PARTY_MEMBERS_CHANGED()
-	StaticPopup_Hide("PARTY_INVITE")
-	AddOn:UnregisterEvent("PARTY_MEMBERS_CHANGED")
-end
-
-local InGroup = false
-local function PARTY_INVITE_REQUEST()
+f:SetScript("OnEvent", function(self, event, ...)
+	arg1 = ...
 	local leader = arg1
-	InGroup = false
+	local ingroup = false
 	
-	-- Update Guild and Friends list
-	if GetNumFriends() > 0 then ShowFriends() end
-	if IsInGuild() then GuildRoster() end
+	if event == "PARTY_INVITE_REQUEST" then
+		if GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0 then return end
+		hidestatic = true
 	
-	for friendIndex = 1, GetNumFriends() do
-		local friendName = GetFriendInfo(friendIndex)
-		if friendName == leader then
-			AcceptGroup()
-			AddOn:RegisterEvent("PARTY_MEMBERS_CHANGED")
-			AddOn["PARTY_MEMBERS_CHANGED"] = PARTY_MEMBERS_CHANGED
-			InGroup = true
-			break
-		end
-	end
-	
-	if not InGroup then
-		for guildIndex = 1, GetNumGuildMembers(true) do
-			local guildMemberName = GetGuildRosterInfo(guildIndex)
-			if guildMemberName == leader then
+		-- Update Guild and Friendlist
+		if GetNumFriends() > 0 then ShowFriends() end
+		if IsInGuild() then GuildRoster() end
+		
+		for friendIndex = 1, GetNumFriends() do
+			local friendName = GetFriendInfo(friendIndex)
+			if friendName == leader then
 				AcceptGroup()
-				AddOn:RegisterEvent("PARTY_MEMBERS_CHANGED")
-				AddOn["PARTY_MEMBERS_CHANGED"] = PARTY_MEMBERS_CHANGED
-				InGroup = true
+				ingroup = true
 				break
 			end
 		end
+		
+		if not ingroup then
+			for guildIndex = 1, GetNumGuildMembers(true) do
+				local guildMemberName = GetGuildRosterInfo(guildIndex)
+				if guildMemberName == leader then
+					AcceptGroup()
+					break
+				end
+			end
+		end
+	elseif event == "PARTY_MEMBERS_CHANGED" and hidestatic == true then
+		StaticPopup_Hide("PARTY_INVITE")
+		hidestatic = false
 	end
-	
-	if not InGroup then
-		SendWho(leader)
-	end
-end
-
-AddOn:RegisterEvent("PARTY_INVITE_REQUEST")
-AddOn["PARTY_INVITE_REQUEST"] = PARTY_INVITE_REQUEST
+end)

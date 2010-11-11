@@ -25,3 +25,4 @@ ItemRefTooltip:SetScript("OnDragStop", function(self)
 	ValidateFramePosition(self)
 	GameTooltip_ShowCompareItem(self, 1)
 end)
+

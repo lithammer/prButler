@@ -1,5 +1,3 @@
-if not specSwitchFilter then return end
-
 local spamFilterMatch1 = string.gsub(ERR_LEARN_ABILITY_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch2 = string.gsub(ERR_LEARN_SPELL_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch3 = string.gsub(ERR_SPELL_UNLEARNED_S:gsub('%.', '%.'), '%%s', '(.*)')
@@ -13,10 +11,11 @@ local groupNamesCaps = {
 
 specCache = {}
 	
-HideSpam = CreateFrame("Frame");
-HideSpam:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED");
-HideSpam:RegisterEvent("UNIT_SPELLCAST_START");
-HideSpam:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED");
+HideSpam = CreateFrame("Frame")
+HideSpam:RegisterEvent("ACTIVE_TALENT_GROUP_CHANGED")
+HideSpam:RegisterEvent("UNIT_SPELLCAST_START")
+HideSpam:RegisterEvent("UNIT_SPELLCAST_STOP")
+HideSpam:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED")
 
 HideSpam.filter = function(self, event, msg, ...)
 	if strfind(msg, spamFilterMatch1) then
@@ -38,7 +37,7 @@ HideSpam:SetScript("OnEvent", function( self, event, ...)
 			ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", self.filter)
 		end
 	
-	elseif(event == "UNIT_SPELLCAST_INTERRUPTED") then
+	elseif(event == "UNIT_SPELLCAST_STOP") or (event == "UNIT_SPELLCAST_INTERRUPTED") then
 		if unit == "player" and (spellName == primarySpecSpellName or spellName == secondarySpecSpellName) then
 			ChatFrame_RemoveMessageEventFilter("CHAT_MSG_SYSTEM", self.filter)
 		end
@@ -67,8 +66,6 @@ HideSpam:SetScript("OnEvent", function( self, event, ...)
 			local text = "Switched to |cffffffff".. s.specName .." ("..s[1].pointsSpent .."/"..s[2].pointsSpent .."/"..s[3].pointsSpent ..")|r talent spec."
 			DEFAULT_CHAT_FRAME:AddMessage(text, 255, 255, 0)
 		end
-		
-		ChatFrame_RemoveMessageEventFilter("CHAT_MSG_SYSTEM", self.filter)
 
 	end
 
