@@ -12,6 +12,7 @@ f:SetScript("OnEvent", function(self, event, ...)
 	local ingroup = false
 	
 	if event == "PARTY_INVITE_REQUEST" then
+		if MiniMapLFGFrame:IsShown() then return end -- Prevent losing queue inside LFD if someone invites you to group
 		if GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0 then return end
 		hidestatic = true
 	
