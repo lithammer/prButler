@@ -15,9 +15,6 @@ ns.sellGrays = true
 -- Automatically repair gear
 ns.autoRepair = true
 
--- Use guild bank funds for repair (if possible)
-ns.useGuildBank = false
-
 -- Error filter i.e. what errors NOT to show
 ns.errorFilter = {
 	["Not enough mana"] = true,

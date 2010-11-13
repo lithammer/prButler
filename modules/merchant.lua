@@ -3,7 +3,7 @@ local _, ns = ...
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function()
 	-- Sell gray trash items
-	if sellGrays then
+	if ns.sellGrays then
 		local c = 0
 		
 		for b = 0, 4 do
@@ -28,7 +28,7 @@ f:SetScript("OnEvent", function()
 	end
 	
 	-- Repair
-	if CanMerchantRepair() and autoRepair then
+	if CanMerchantRepair() and ns.autoRepair then
 		cost, possible = GetRepairAllCost()
 		
 		if cost > 0 then
@@ -49,7 +49,7 @@ f:RegisterEvent("MERCHANT_SHOW")
 -- Buy max number value with alt
 local savedMerchantItemButton_OnModifiedClick = MerchantItemButton_OnModifiedClick
 function MerchantItemButton_OnModifiedClick(self, ...)
-	if ( IsAltKeyDown() ) then
+	if IsAltKeyDown() then
 		local maxStack = select(8, GetItemInfo(GetMerchantItemLink(self:GetID())))
 		local name, texture, price, quantity, numAvailable, isUsable, extendedCost = GetMerchantItemInfo(self:GetID())
 		
