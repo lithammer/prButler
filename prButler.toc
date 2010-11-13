@@ -1,8 +1,6 @@
 ## Interface: 40000
 ## Title: |cff669933pr|rButler
-## Version: 0.90
-## Author: Peter
-## Notes: Makes life (WoW) easier for you
+## Version: 1.00
 
 prButler.lua
 Config.lua
