@@ -2,6 +2,8 @@ local _, ns = ...
 
 local f = CreateFrame("Frame")
 f:SetScript("OnEvent", function()
+	local fontsize = select(2, GetChatWindowInfo(1))
+
 	-- Sell gray trash items
 	if ns.sellGrays then
 		local c = 0
@@ -22,8 +24,7 @@ f:SetScript("OnEvent", function()
 		end
 		
 		if c > 0 then
-			local g, s, c = math.floor(c/10000) or 0, math.floor((c%10000)/100) or 0, c%100
-			DEFAULT_CHAT_FRAME:AddMessage("Your vendor trash has been sold and you earned |cffffffff"..g.."|cffffd700g|r".." |cffffffff"..s.."|cffc7c7cfs|r".." |cffffffff"..c.."|cffeda55fc|r.", 255, 255, 0)
+			DEFAULT_CHAT_FRAME:AddMessage("Your vendor trash has been sold and you earned |cffffffff"..GetCoinTextureString(c, fontsize).."|r", 255, 255, 0)
 		end
 	end
 	
@@ -34,10 +35,7 @@ f:SetScript("OnEvent", function()
 		if cost > 0 then
 			if possible then
 				RepairAllItems()
-				local c = cost%100
-				local s = math.floor((cost%10000)/100)
-				local g = math.floor(cost/10000)
-				DEFAULT_CHAT_FRAME:AddMessage("Your items have been repaired for |cffffffff"..g.."|cffffd700g|r".." |cffffffff"..s.."|cffc7c7cfs|r".." |cffffffff"..c.."|cffeda55fc|r.", 255, 255, 0)
+				DEFAULT_CHAT_FRAME:AddMessage("Your items have been repaired for |cffffffff"..GetCoinTextureString(cost, fontsize).."|r", 255, 255, 0)
 			else
 				DEFAULT_CHAT_FRAME:AddMessage("You don't have enough money for repair!", 255, 0, 0)
 			end
