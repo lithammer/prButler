@@ -6,7 +6,7 @@
 
 `errors.lua` Filters useless/annoying error messages
 
-`Invite.lua` Automatically accept group invite from guildies and friends
+`invite.lua` Automatically accept group invite from guildies and friends
 
 `loot.lua` Adds a link loot button on the loot frame, links to group/raid chat
 
