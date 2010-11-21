@@ -17,13 +17,15 @@ ns.autoRepair = true
 
 -- Error filter i.e. what errors NOT to show
 ns.errorFilter = {
-	["Not enough mana"] = true,
-	["Spell is not ready yet."] = true,
-	["Another action is in progress"] = true,
-	["Ability is not ready yet."] = true,
-	["Item is not ready yet."] = true,
-	["Internal mail database error."] = true,
-	["You can't do that yet"] = true,
-	["Not enough runic power"] = true,
-	["Not enough energy"] = true,
+	[ERR_SPELL_COOLDOWN] = true,
+	[SPELL_FAILED_SPELL_IN_PROGRESS] = true,
+	[ERR_ABILITY_COOLDOWN] = true,
+	[ERR_ITEM_COOLDOWN] = true,
+	[ERR_MAIL_DATABASE_ERROR] = true,
+	[SPELL_FAILED_CASTER_AURASTATE] = true,
+	[ERR_OUT_OF_MANA] = true,
+	[ERR_OUT_OF_RUNIC_POWER] = true,
+	[ERR_OUT_OF_ENERGY] = true,
+	[ERR_OUT_OF_FOCUS] = true,
+	[ERR_OUT_OF_RAGE] = true,
 }
