@@ -1,23 +1,23 @@
-Module information:
+# Module information:
 
-Accept loot window:
+- Accept loot window:
 Automatically accept disenchant window and when looting uncommon loot
 
-Compare:
+- Compare:
 Enforces compare tooltips, especially useful when clicking links from chat window
 
-Errors:
+- Errors:
 Filters useless/annoying error messages
 
-Invite:
+- Invite:
 Automatically accept group invite from guildies and friends
 
-Loot:
+- Loot:
 Adds a link loot button on the loot frame, links to group/raid chat
 
-Merchant:
+- Merchant:
 Sells greys and repairs all items when visiting a vendor and prints details
 
-Spec-switch filter:
+- Spec-switch filter:
 Filters out the annoying "gained a new ability..." spam when switching specs
 and compresses it to a nice one-line message
