@@ -29,7 +29,7 @@ f:SetScript("OnEvent", function()
 	end
 	
 	-- Repair
-	if CanMerchantRepair() and ns.autoRepair and not IsShiftKeyDown() then
+	if CanMerchantRepair() and ns.autoRepair then
 		cost, possible = GetRepairAllCost()
 		
 		if cost > 0 then
