@@ -1,8 +1,8 @@
 local _, ns = ...
 
-local f, o, errorDB = CreateFrame("Frame"), "No error yet.", ns.errorFilter
+local f, o, errorDB = CreateFrame('Frame'), 'No error yet.', ns.errorFilter
 
-f:SetScript("OnEvent", function(self, event, error)
+f:SetScript('OnEvent', function(self, event, error)
 	if not errorDB[error] then
 		UIErrorsFrame:AddMessage(error, 1, 0 , 0)
 	else
@@ -10,8 +10,8 @@ f:SetScript("OnEvent", function(self, event, error)
 	end
 end)
 
-SLASH_PRERROR1 = "/error"
+SLASH_PRERROR1 = '/error'
 function SlashCmdList.PRERROR() print(o) end
 
-UIErrorsFrame:UnregisterEvent("UI_ERROR_MESSAGE")
-f:RegisterEvent("UI_ERROR_MESSAGE")
+UIErrorsFrame:UnregisterEvent('UI_ERROR_MESSAGE')
+f:RegisterEvent('UI_ERROR_MESSAGE')
