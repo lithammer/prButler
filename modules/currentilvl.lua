@@ -2,49 +2,24 @@ local _, ns = ...
 
 --if not ns.currentilvl then return end
 
---[[
-INVSLOT_AMMO       = 0
-INVSLOT_HEAD       = 1 INVSLOT_FIRST_EQUIPPED = INVSLOT_HEAD
-INVSLOT_NECK       = 2
-INVSLOT_SHOULDER   = 3
-INVSLOT_BODY       = 4
-INVSLOT_CHEST      = 5
-INVSLOT_WAIST      = 6
-INVSLOT_LEGS       = 7
-INVSLOT_FEET       = 8
-INVSLOT_WRIST      = 9
-INVSLOT_HAND       = 10
-INVSLOT_FINGER1    = 11
-INVSLOT_FINGER2    = 12
-INVSLOT_TRINKET1   = 13
-INVSLOT_TRINKET2   = 14
-INVSLOT_BACK       = 15
-INVSLOT_MAINHAND   = 16
-INVSLOT_OFFHAND    = 17
-INVSLOT_RANGED     = 18
-INVSLOT_TABARD     = 19
-INVSLOT_LAST_EQUIPPED = INVSLOT_TABARD
-]]--
-
 local itemSlots = {
-	['HeadSlot'] = 1,
-	['NeckSlot'] = 2,
-	['ShoulderSlot'] = 3,
-	--['ShirtSlot'] = 4, -- Only here as a note that #4 is skipped on purpose
-	['ChestSlot'] = 5,
-	['WaistSlot'] = 6,
-	['LegsSlot'] = 7,
-	['FeetSlot'] = 8,
-	['WristSlot'] = 9,
-	['HandsSlot'] = 10,
-	['Finger0Slot'] = 11,
-	['Finger1Slot'] = 12,
-	['Trinket0Slot'] = 13,
-	['Trinket1Slot'] = 14,
-	['BackSlot'] = 15,
-	['MainHandSlot'] = 16,
-	['SecondaryHandSlot'] = 17,
-	['RangedSlot'] = 18,
+	INVSLOT_HEAD,
+	INVSLOT_NECK,
+	INVSLOT_SHOULDER,
+	INVSLOT_CHEST,
+	INVSLOT_WAIST,
+	INVSLOT_LEGS,
+	INVSLOT_FEET,
+	INVSLOT_WRIST,
+	INVSLOT_HAND,
+	INVSLOT_FINGER1,
+	INVSLOT_FINGER2,
+	INVSLOT_TRINKET1,
+	INVSLOT_TRINKET2,
+	INVSLOT_BACK,
+	INVSLOT_MAINHAND,
+	INVSLOT_OFFHAND,
+	INVSLOT_RANGED,
 }
 	
 
@@ -53,15 +28,15 @@ local GetCurrentAverageItemLevel = function()
 	local mainHand = false
 	local offHand = false
 	
-	for slot, id in pairs(itemSlots) do
+	for _, id in pairs(itemSlots) do
 		local itemLink = GetInventoryItemLink('player', id)
 		
 		if (itemLink) then
 			local itemLevel = select(4, GetItemInfo(itemLink))
 			
-			if (slot == 'MainHandSlot') then
+			if (id == INVSLOT_MAINHAND) then
 				mainHand = true
-			elseif (slot == 'SecondaryHandSlot') then
+			elseif (id == INVSLOT_OFFHAND) then
 				offHand = true
 			end
 			
