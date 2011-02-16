@@ -76,9 +76,6 @@ local GetCurrentAverageItemLevel = function()
 	else
 		totalEqItems = 16
 	end
-	
-	print(totalItemLevel)
-	print(totalEqItems)
 
 	return (totalItemLevel / totalEqItems)
 end
