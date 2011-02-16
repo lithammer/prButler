@@ -26,16 +26,16 @@ end)
 
 -- Disables healing spam for shadow priests
 local ShadowPriest = CreateFrame('Frame')
-local function OnEvent_ShadowPriest(...)
+local function ShadowPriest_OnEvent(...)
 	if (GetShapeshiftForm() == 1) then
-		SetCVar('CombatHealing',0)
+		SetCVar('CombatHealing', 0)
 	else
-		SetCVar('CombatHealing',1)
+		SetCVar('CombatHealing', 1)
 	end
 end
 ShadowPriest:RegisterEvent('UPDATE_SHAPESHIFT_FORM')
 ShadowPriest:RegisterEvent('UPDATE_SHAPESHIFT_FORMS')
-ShadowPriest:SetScript('OnEvent', OnEvent_ShadowPriest)
+ShadowPriest:SetScript('OnEvent', ShadowPriest_OnEvent)
 
 -- Quest level(yQuestLevel by yleaf)
 local function update()
