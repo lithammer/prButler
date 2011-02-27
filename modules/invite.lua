@@ -2,18 +2,18 @@ local _, ns = ...
 
 if not ns.autoAcceptInvite then return end
 
-local f = CreateFrame("Frame")
-f:RegisterEvent("PARTY_INVITE_REQUEST")
-f:RegisterEvent("PARTY_MEMBERS_CHANGED")
+local f = CreateFrame('Frame')
+f:RegisterEvent('PARTY_INVITE_REQUEST')
+f:RegisterEvent('PARTY_MEMBERS_CHANGED')
 
 local hidestatic -- used to hide static popup when auto-accepting
 
-f:SetScript("OnEvent", function(self, event, ...)
+f:SetScript('OnEvent', function(self, event, ...)
 	arg1 = ...
 	local leader = arg1
 	local ingroup = false
 	
-	if event == "PARTY_INVITE_REQUEST" then
+	if event == 'PARTY_INVITE_REQUEST' then
 		if MiniMapLFGFrame:IsShown() then return end -- Prevent losing queue inside LFD if someone invites you to group
 		if GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0 then return end
 		hidestatic = true
@@ -40,8 +40,8 @@ f:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
-	elseif event == "PARTY_MEMBERS_CHANGED" and hidestatic == true then
-		StaticPopup_Hide("PARTY_INVITE")
+	elseif event == 'PARTY_MEMBERS_CHANGED' and hidestatic == true then
+		StaticPopup_Hide('PARTY_INVITE')
 		hidestatic = false
 	end
 end)

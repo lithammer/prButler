@@ -6,7 +6,9 @@ prButler.lua
 Config.lua
 
 modules\acceptlootwindow.lua
+modules\aurasource.lua
 modules\compare.lua
+modules\currentilvl.lua
 modules\errors.lua
 modules\invite.lua
 modules\loot.lua

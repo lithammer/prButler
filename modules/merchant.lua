@@ -1,7 +1,7 @@
 local _, ns = ...
 
-local f = CreateFrame("Frame")
-f:SetScript("OnEvent", function()
+local f = CreateFrame('Frame')
+f:SetScript('OnEvent', function()
 	local fontsize = select(2, GetChatWindowInfo(1))
 
 	-- Sell gray trash items
@@ -24,7 +24,7 @@ f:SetScript("OnEvent", function()
 		end
 		
 		if c > 0 then
-			DEFAULT_CHAT_FRAME:AddMessage("Your vendor trash has been sold and you earned |cffffffff"..GetCoinTextureString(c, fontsize).."|r", 255, 255, 0)
+			DEFAULT_CHAT_FRAME:AddMessage('Your vendor trash has been sold and you earned |cffffffff'..GetCoinTextureString(c, fontsize)..'|r', 255, 255, 0)
 		end
 	end
 	
@@ -35,14 +35,14 @@ f:SetScript("OnEvent", function()
 		if cost > 0 then
 			if possible then
 				RepairAllItems()
-				DEFAULT_CHAT_FRAME:AddMessage("Your items have been repaired for |cffffffff"..GetCoinTextureString(cost, fontsize).."|r", 255, 255, 0)
+				DEFAULT_CHAT_FRAME:AddMessage('Your items have been repaired for |cffffffff'..GetCoinTextureString(cost, fontsize)..'|r', 255, 255, 0)
 			else
 				DEFAULT_CHAT_FRAME:AddMessage("You don't have enough money for repair!", 255, 0, 0)
 			end
 		end
 	end
 end)
-f:RegisterEvent("MERCHANT_SHOW")
+f:RegisterEvent('MERCHANT_SHOW')
 
 -- Buy max number value with alt
 local savedMerchantItemButton_OnModifiedClick = MerchantItemButton_OnModifiedClick
