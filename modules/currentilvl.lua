@@ -25,31 +25,25 @@ local itemSlots = {
 
 local GetCurrentAverageItemLevel = function()
 	local totalItemLevel = 0
-	local mainHand = false
-	local offHand = false
+	local totalEqItems = #itemSlots
+	local hasTwoHander = false
 	
 	for _, id in pairs(itemSlots) do
 		local itemLink = GetInventoryItemLink('player', id)
 		
 		if (itemLink) then
-			local itemLevel = select(4, GetItemInfo(itemLink))
+			local _, _, _, itemLevel, _, _, _, _, equipSlot = GetItemInfo(itemLink)
 			
-			if (id == INVSLOT_MAINHAND) then
-				mainHand = true
-			elseif (id == INVSLOT_OFFHAND) then
-				offHand = true
+			if (id == INVSLOT_MAINHAND and equipSlot == 'INVTYPE_2HWEAPON') then
+				hasTwoHander = true
 			end
 			
 			totalItemLevel = totalItemLevel + itemLevel
 		end
 	end
 	
-	-- Assume that all slots have to be filled
-	local totalEqItems
-	if (mainHand and offHand or not mainHand and offHand) then
-		totalEqItems = 17
-	else
-		totalEqItems = 16
+	if (hasTwoHander) then
+		totalEqItems = totalEqItems - 1
 	end
 
 	return (totalItemLevel / totalEqItems)
