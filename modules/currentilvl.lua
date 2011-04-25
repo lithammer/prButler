@@ -56,10 +56,10 @@ hooksecurefunc('PaperDollFrame_SetItemLevel', function(statFrame, unit)
 
 	local text = _G[statFrame:GetName()..'StatText']
 
-	local avgItemLevel = floor(GetAverageItemLevel())
-	local currentAvgItemLevel = floor(GetCurrentAverageItemLevel())
+	local avgItemLevel = math.floor(GetAverageItemLevel())
+	local currentAvgItemLevel = math.floor(GetCurrentAverageItemLevel())
 
 	if (currentAvgItemLevel ~= avgItemLevel) then
-		text:SetText(avgItemLevel..' ('..currentAvgItemLevel..')')
+		text:SetText(format('(%d) %d', currentAvgItemLevel, avgItemLevel))
 	end
 end)
