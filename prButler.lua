@@ -27,7 +27,7 @@ end)
 -- Disables healing spam for shadow priests
 local ShadowPriest = CreateFrame('Frame')
 local function ShadowPriest_OnEvent(...)
-	if (GetShapeshiftForm() == 1) then
+	if GetShapeshiftForm() == 1 then
 		SetCVar('CombatHealing', 0)
 	else
 		SetCVar('CombatHealing', 1)
@@ -35,6 +35,7 @@ local function ShadowPriest_OnEvent(...)
 end
 ShadowPriest:RegisterEvent('UPDATE_SHAPESHIFT_FORM')
 ShadowPriest:RegisterEvent('UPDATE_SHAPESHIFT_FORMS')
+ShadowPriest:RegisterEvent('PLAYER_ENTERING_WORLD')
 ShadowPriest:SetScript('OnEvent', ShadowPriest_OnEvent)
 
 -- Quest level(yQuestLevel by yleaf)
@@ -50,12 +51,12 @@ local function update()
 		if questIndex <= numEntries then
 			local title, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete, isDaily = GetQuestLogTitle(questIndex)
 			if not isHeader then
-				questLogTitle:SetText("[" .. level .. "] " .. title)
+				questLogTitle:SetText('[' .. level .. '] ' .. title)
 				QuestLogTitleButton_Resize(questLogTitle)
 			end
 		end
 	end
 end
 
-hooksecurefunc("QuestLog_Update", update)
-QuestLogScrollFrameScrollBar:HookScript("OnValueChanged", update)
+hooksecurefunc('QuestLog_Update', update)
+QuestLogScrollFrameScrollBar:HookScript('OnValueChanged', update)
