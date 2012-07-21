@@ -1,6 +1,6 @@
-local _, ns = ...
+local _, config = ...
 
---if not ns.aurasource then return end
+if not config.auraSource then return end
 
 local function addAuraSource(self, func, unit, index, filter)
 	local srcUnit = select(8, func(unit, index, filter))

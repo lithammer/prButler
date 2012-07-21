@@ -1,6 +1,6 @@
-local _, ns = ...
+local _, config = ...
 
-if not ns.specSwitchFilter then return end
+if not config.specSwitchFilter then return end
 
 local spamFilterMatch1 = string.gsub(ERR_LEARN_ABILITY_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch2 = string.gsub(ERR_LEARN_SPELL_S:gsub('%.', '%.'), '%%s', '(.*)')

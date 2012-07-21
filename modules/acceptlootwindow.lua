@@ -1,4 +1,6 @@
-local _, ns = ...
+local _, config = ...
+
+if not config.autoAcceptLootWindow then return end
 
 local f = CreateFrame('Frame')
 f:RegisterEvent('CONFIRM_DISENCHANT_ROLL')

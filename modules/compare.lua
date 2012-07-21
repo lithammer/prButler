@@ -1,4 +1,6 @@
-local _, ns = ...
+local _, config = ...
+
+if not config.autoCompare then return end
 
 local orig1 = GameTooltip:GetScript('OnTooltipSetItem')
 GameTooltip:SetScript('OnTooltipSetItem', function(self, ...)

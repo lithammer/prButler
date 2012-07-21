@@ -3,6 +3,12 @@ local _, config = ...
 -- Accepts invites from friends and guild mates, also sends a /who request of the inviter
 config.autoAcceptInvite = true
 
+-- Automatically accept disenchant window and when looting uncommon loot
+config.autoAcceptLootWindow = true
+
+-- Automatically shows the compare item tooltip (you don't have to hold shift)
+config.autoCompare = true
+
 -- Add a button to the loot frame that announces loot to raid chat
 config.announceLootButton = true
 
@@ -14,6 +20,9 @@ config.sellGrays = true
 
 -- Automatically repair gear
 config.autoRepair = true
+
+-- Display the caster of buffs on the tooltip
+config.auraSource = true
 
 -- Error filter i.e. what errors NOT to show
 config.errorFilter = {

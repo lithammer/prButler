@@ -4,8 +4,6 @@
 
 `compare.lua` Enforces compare tooltips, especially useful when clicking links from chat window
 
-`currentilvl.lua` Adds the averge item level of currently equipped gear to the character frame, in addition to the highest average item level Blizzard displays
-
 `errors.lua` Filters useless/annoying error messages
 
 `invite.lua` Automatically accept group invite from guildies and friends
@@ -16,3 +14,5 @@
 
 `specswitchfilter.lua` Filters out the annoying "gained a new ability..." spam when switching specs
 and compresses it to a nice one-line message
+
+`aurasource.lua` Display the caster of buffs on the tooltip

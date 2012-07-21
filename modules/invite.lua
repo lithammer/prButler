@@ -1,6 +1,6 @@
-local _, ns = ...
+local _, config = ...
 
-if not ns.autoAcceptInvite then return end
+if not config.autoAcceptInvite then return end
 
 local f = CreateFrame('Frame')
 f:RegisterEvent('PARTY_INVITE_REQUEST')

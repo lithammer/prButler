@@ -1,9 +1,19 @@
-local _, ns = ...
+local _, config = ...
 
-if not ns.announceLootButton then return end
+if not config.announceLootButton then return end
+
+local EPIC = 4
+local POOR = 0
+local COMMON = 1
+local UNCOMMON = 2
+local RARE = 3
+local EPIC = 4
+local LEGENDARY = 5
+local ARTIFACT = 6
+local HEIRLOOM = 7
 
 local f = CreateFrame('Button', nil, LootFrame, 'UIPanelButtonTemplate')
-f:SetPoint('TOPRIGHT', LootFrame, -80, -43)
+f:SetPoint('TOPRIGHT', LootFrame, -5, -25)
 f:SetFrameStrata('HIGH')
 f:SetWidth(100)
 f:SetHeight(24)
@@ -19,13 +29,14 @@ f:SetScript('OnClick', function()
 		SendChatMessage('>> Loot from '..UnitName('target'), channel)
 	end
 
-	for i = 1, GetNumLootItems() do
-	   if LootSlotIsItem(i) then
-		  local link = GetLootSlotLink(i)
-		  --local text = i..'. %s'
-		  local text = '- %s'
+	for slot = 1, GetNumLootItems() do
+	   if LootSlotIsItem(slot) then
+		  local link = GetLootSlotLink(slot)
+		  local texture, item, quantity, quality, locked = GetLootSlotInfo(slot)
 		  
-		  SendChatMessage(format(text, link), channel)
+		  if quality == EPIC then
+			SendChatMessage(format('- %s', link), channel)
+		end
 	   end
 	end
 end)
