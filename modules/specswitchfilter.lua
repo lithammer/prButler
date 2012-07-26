@@ -42,7 +42,7 @@ HideSpam:SetScript('OnEvent', function(self, event, ...)
 		end
 	
 	elseif event == 'ACTIVE_TALENT_GROUP_CHANGED' then
-		local id, name, description, icon, background, role = GetSpecializationInfo(GetActiveSpecGroup())
+		local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
 
 		if name then
 			local text = 'Switched to |cffffffff'..name..' ('..role..')|r talent spec.'
