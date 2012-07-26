@@ -5,6 +5,7 @@ if not config.specSwitchFilter then return end
 local spamFilterMatch1 = string.gsub(ERR_LEARN_ABILITY_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch2 = string.gsub(ERR_LEARN_SPELL_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch3 = string.gsub(ERR_SPELL_UNLEARNED_S:gsub('%.', '%.'), '%%s', '(.*)')
+local spamFilterMatch4 = string.gsub(ERR_LEARN_PASSIVE_S:gsub('%.', '%.'), '%%s', '(.*)')
 local primarySpecSpellName = GetSpellInfo(63645)
 local secondarySpecSpellName = GetSpellInfo(63644)
 
@@ -20,6 +21,8 @@ HideSpam.filter = function(self, event, msg, ...)
 	elseif strfind(msg, spamFilterMatch2) then
 		return true
 	elseif strfind(msg, spamFilterMatch3) then
+		return true
+	elseif strfind(msg, spamFilterMatch4) then
 		return true
 	end
 	return false, msg, ...
