@@ -42,6 +42,6 @@ f:SetScript('OnEvent', function(self, event, ...)
 		local isRealID = event == 'CHAT_MSG_BN_WHISPER' and true or false
 
 		-- Add whispers to the history stack
-		table.insert(history, {timestamp = os.date('%H:%M'), message = message, sender = sender, isRealID = isRealID})
+		table.insert(history, {message = message, sender = sender, isRealID = isRealID})
 	end
 end)
