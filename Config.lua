@@ -24,6 +24,9 @@ config.autoRepair = true
 -- Display the caster of buffs on the tooltip
 config.auraSource = true
 
+-- Display a list of whispers received while AFK
+config.whisperHistory = true
+
 -- Error filter i.e. what errors NOT to show
 config.errorFilter = {
 	[ERR_SPELL_COOLDOWN] = true,

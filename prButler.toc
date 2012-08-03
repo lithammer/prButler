@@ -14,3 +14,4 @@ modules\invite.lua
 modules\loot.lua
 modules\merchant.lua
 modules\specswitchfilter.lua
+modules\whisperhistory.lua
