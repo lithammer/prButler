@@ -6,10 +6,11 @@ local spamFilterMatch1 = string.gsub(ERR_LEARN_ABILITY_S:gsub('%.', '%.'), '%%s'
 local spamFilterMatch2 = string.gsub(ERR_LEARN_SPELL_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch3 = string.gsub(ERR_SPELL_UNLEARNED_S:gsub('%.', '%.'), '%%s', '(.*)')
 local spamFilterMatch4 = string.gsub(ERR_LEARN_PASSIVE_S:gsub('%.', '%.'), '%%s', '(.*)')
+
 local primarySpecSpellName = GetSpellInfo(63645)
 local secondarySpecSpellName = GetSpellInfo(63644)
 
-HideSpam = CreateFrame('Frame')
+local HideSpam = CreateFrame('Frame')
 HideSpam:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED')
 HideSpam:RegisterUnitEvent('UNIT_SPELLCAST_START', 'player')
 HideSpam:RegisterUnitEvent('UNIT_SPELLCAST_STOP', 'player')
@@ -42,7 +43,9 @@ HideSpam:SetScript('OnEvent', function(self, event, ...)
 		end
 	
 	elseif event == 'ACTIVE_TALENT_GROUP_CHANGED' then
-		local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
+		if GetSpecialization() then
+			local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
+		end
 
 		if name then
 			local text = 'Switched to |cffffffff'..name..' ('..role..')|r talent spec.'
