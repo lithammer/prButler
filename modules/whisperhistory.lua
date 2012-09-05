@@ -33,7 +33,7 @@ f:SetScript('OnEvent', function(self, event, ...)
 			end
 
 			-- Clear the history stack
-			history = {}
+			table.wipe(history)
 		end
 	end
 
