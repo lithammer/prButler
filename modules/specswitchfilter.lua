@@ -45,12 +45,10 @@ HideSpam:SetScript('OnEvent', function(self, event, ...)
 	elseif event == 'ACTIVE_TALENT_GROUP_CHANGED' then
 		if GetSpecialization() then
 			local id, name, description, icon, background, role = GetSpecializationInfo(GetSpecialization())
-		end
 
-		if name then
-			local text = 'Switched to |cffffffff'..name..' ('..role..')|r talent spec.'
+			local text = 'Switched to |T'..icon..':0|t |cff6adb54'..name..'|r specialization.'
 
-			DEFAULT_CHAT_FRAME:AddMessage(text, 255, 255, 0)
+			DEFAULT_CHAT_FRAME:AddMessage(text, 255, 255, 255)
 		end
 	end
 end)
