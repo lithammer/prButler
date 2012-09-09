@@ -15,7 +15,7 @@ f:SetScript('OnEvent', function(self, event, ...)
 	
 	if event == 'PARTY_INVITE_REQUEST' then
 		if QueueStatusMinimapButton:IsShown() then return end -- Prevent losing queue inside LFD if someone invites you to group
-		if GetNumPartyMembers() > 0 or GetNumRaidMembers() > 0 then return end
+		if GetNumSubgroupMembers() > 0 or GetNumGroupMembers() > 0 then return end
 		hidestatic = true
 	
 		-- Update Guild and Friendlist
