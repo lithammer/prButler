@@ -11,7 +11,7 @@ local primarySpecSpellName = GetSpellInfo(63645)
 local secondarySpecSpellName = GetSpellInfo(63644)
 
 local HideSpam = CreateFrame('Frame')
-HideSpam:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED')
+HideSpam:RegisterEvent('PLAYER_LOGIN')
 HideSpam:RegisterUnitEvent('UNIT_SPELLCAST_START', 'player')
 HideSpam:RegisterUnitEvent('UNIT_SPELLCAST_STOP', 'player')
 HideSpam:RegisterUnitEvent('UNIT_SPELLCAST_INTERRUPTED', 'player')
@@ -31,8 +31,11 @@ end
 
 HideSpam:SetScript('OnEvent', function(self, event, ...)
 	local unit, spellName = ...
-	
-	if event == 'UNIT_SPELLCAST_START' then
+
+	if event == 'PLAYER_LOGIN' then
+		HideSpam:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED')
+		HideSpam:UnregisterEvent('PLAYER_LOGIN')
+	elseif event == 'UNIT_SPELLCAST_START' then
 		if unit == 'player' and (spellName == primarySpecSpellName or spellName == secondarySpecSpellName) then
 			ChatFrame_AddMessageEventFilter('CHAT_MSG_SYSTEM', self.filter)
 		end
