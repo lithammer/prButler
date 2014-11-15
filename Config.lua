@@ -1,18 +1,17 @@
 local _, config = ...
 
--- Accepts invites from friends and guild mates, also sends a /who request of the inviter
-config.autoAcceptInvite = true
+-- Accepts invites from friends and guild mates, also sends a /who request of
+-- the inviter
+config.autoAcceptInvite = false
 
 -- Automatically accept disenchant window and when looting uncommon loot
-config.autoAcceptLootWindow = true
+config.autoAcceptLootWindow = false
 
 -- Automatically shows the compare item tooltip (you don't have to hold shift)
 config.autoCompare = true
 
--- Add a button to the loot frame that announces loot to raid chat
-config.announceLootButton = true
-
--- Filters the "gained a new ability" spam when switching spec and replaces it with a short informative message
+-- Filters the "gained a new ability" spam when switching spec and replaces it
+-- with a short informative message
 config.specSwitchFilter = true
 
 -- Automatically sell grey items when visiting a vendor
