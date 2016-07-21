@@ -15,7 +15,7 @@ end)
 
 local orig2 = ItemRefTooltip:GetScript('OnTooltipSetItem')
 ItemRefTooltip:SetScript('OnTooltipSetItem', function(self, ...)
-	GameTooltip_ShowCompareItem(self, 1)
+	GameTooltip_ShowCompareItem(self)
 	self.comparing = true
 
 	if orig2 then
