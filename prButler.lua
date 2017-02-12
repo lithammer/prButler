@@ -17,9 +17,9 @@ InterfaceOptionsFrame:SetMovable(1)
 InterfaceOptionsFrame:RegisterForDrag('LeftButton')
 
 InterfaceOptionsFrame:SetScript('OnDragStart', function(self)
-	self:StartMoving()
+    self:StartMoving()
 end)
 
 InterfaceOptionsFrame:SetScript('OnDragStop', function(self)
-	self:StopMovingOrSizing()
+    self:StopMovingOrSizing()
 end)
