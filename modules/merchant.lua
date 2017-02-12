@@ -7,11 +7,11 @@ f:SetScript('OnEvent', function()
 	-- Sell gray trash items
 	if (ns.sellGrays) then
 		local c = 0
-		
+
 		for b = 0, 4 do
 			for s = 1, GetContainerNumSlots(b) do
 				local l = GetContainerItemLink(b, s)
-				
+
 				if (l) then
 					local p = select(11, GetItemInfo(l)) * select(2, GetContainerItemInfo(b, s))
 					if (select(3, GetItemInfo(l)) == 0 and p > 0) then
@@ -22,17 +22,17 @@ f:SetScript('OnEvent', function()
 				end
 			end
 		end
-		
+
 		if (c > 0) then
 			DEFAULT_CHAT_FRAME:AddMessage('Your vendor trash has been sold and you earned |cffffffff'..GetCoinTextureString(c, fontsize)..'|r', 255, 255, 0)
 		end
 	end
-	
+
 	-- Repair
 	if (not IsShiftKeyDown()) then
 		if (CanMerchantRepair() and ns.autoRepair) then
-			cost, possible = GetRepairAllCost()
-			
+			local cost, possible = GetRepairAllCost()
+
 			if (cost > 0) then
 				if (possible) then
 					RepairAllItems()
@@ -52,7 +52,7 @@ function MerchantItemButton_OnModifiedClick(self, ...)
 	if (IsAltKeyDown()) then
 		local maxStack = select(8, GetItemInfo(GetMerchantItemLink(self:GetID())))
 		local name, texture, price, quantity, numAvailable, isUsable, extendedCost = GetMerchantItemInfo(self:GetID())
-		
+
 		if (maxStack and maxStack > 1) then
 			BuyMerchantItem(self:GetID(), floor(maxStack / quantity))
 		end
