@@ -1,6 +1,7 @@
 local history = {}
 local frame = CreateFrame('Frame')
 
+---@param _ Frame
 frame:SetScript('OnEvent', function(_, event, ...)
     local afk = UnitIsAFK('player')
     if not canaccessvalue(afk) then

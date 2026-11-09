@@ -2,14 +2,19 @@
     "flavors": ["forever"],
     "diagnostics": {
         "enable": [
+            "implicit-nil-return",
+            "incomplete-signature-doc",
+            "invalid-op",
+            "missing-param-annotation",
+            "missing-return-annotation",
             "need-check-nil",
             "nil-index",
-            "invalid-op",
-            "unused-function",
-            "unused-vararg",
-            "redundant-or",
             "redundant-and",
-            "redundant-condition"
+            "redundant-condition",
+            "redundant-or",
+            "unknown-callback-event",
+            "unused-function",
+            "unused-vararg"
         ]
     }
 }
