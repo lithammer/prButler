@@ -2,9 +2,11 @@
 
 Small conveniences for World of Warcraft Forever.
 
-- **Bags:** Tints items you cannot use with a transparent red overlay in
-  Blizzard's bags. Green up arrows and red down arrows show item-level
-  upgrades and downgrades against compatible equipped gear.
+- **Unusable items:** Tints items you cannot use with a transparent red overlay
+  in Blizzard's bags.
+- **Stat hints:** A green up arrow means no numeric stat is worse and at least
+  one is better than compatible equipped gear; red down means the reverse.
+  Tradeoffs show no arrow, and effects and set bonuses are not scored.
 - **Merchant:** Sells junk automatically when you open a vendor, using the
   game's sell-all-junk action.
 - **Whisper history:** Shows character and Battle.net whispers received while

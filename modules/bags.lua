@@ -32,10 +32,37 @@ local oneHand = {
     INVTYPE_WEAPONOFFHAND = true,
 }
 
+local function CompareStats(stats, equippedStats)
+    local better, worse = false, false
+
+    for stat, value in pairs(stats) do
+        local equippedValue = equippedStats[stat] or 0
+        better = better or value > equippedValue
+        worse = worse or value < equippedValue
+    end
+
+    for stat, value in pairs(equippedStats) do
+        if stats[stat] == nil then
+            better = better or value < 0
+            worse = worse or value > 0
+        end
+    end
+
+    if better and not worse then
+        return true
+    elseif worse and not better then
+        return false
+    end
+end
+
 local function CompareItem(link, equipLoc)
     local itemSlots = slots[equipLoc]
-    local level = C_Item.GetDetailedItemLevelInfo(link)
-    if not itemSlots or not level then
+    if not itemSlots then
+        return
+    end
+
+    local stats = C_Item.GetItemStats(link)
+    if not stats then
         return
     end
 
@@ -55,20 +82,20 @@ local function CompareItem(link, equipLoc)
         end
     end
 
-    local weakest
+    local upgrade, downgrade = false, true
     for _, slot in ipairs(itemSlots) do
         local equipped = GetInventoryItemLink('player', slot)
-        local equippedLevel = 0
+        local equippedStats = {}
 
         if equipped then
             local equippedLoc = select(9, C_Item.GetItemInfo(equipped))
-            -- Changing weapon layouts needs more than an item-level comparison.
+            -- Comparing weapon layouts needs a score for both hands.
             if slot >= 16 and slot <= 18 and equippedLoc ~= equipLoc and not (oneHand[equipLoc] and oneHand[equippedLoc]) then
                 return
             end
 
-            equippedLevel = C_Item.GetDetailedItemLevelInfo(equipped)
-            if not equippedLevel then
+            equippedStats = C_Item.GetItemStats(equipped)
+            if not equippedStats then
                 return
             end
         elseif slot == 17 then
@@ -81,12 +108,14 @@ local function CompareItem(link, equipLoc)
             end
         end
 
-        weakest = math.min(weakest or equippedLevel, equippedLevel)
+        local comparison = CompareStats(stats, equippedStats)
+        upgrade = upgrade or comparison == true
+        downgrade = downgrade and comparison == false
     end
 
-    if level > weakest then
+    if upgrade then
         return true
-    elseif level < weakest then
+    elseif downgrade then
         return false
     end
 end
