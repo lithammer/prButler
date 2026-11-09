@@ -1,7 +1,8 @@
 ## Interface: 16001
 ## Title: |cff669933pr|rButler
 ## Version: 2.00
-## Notes: Sells vendor junk and shows whispers received while AFK in WoW Forever.
+## Notes: Bag item hints, vendor junk selling, and AFK whisper history for WoW Forever.
 
 modules\merchant.lua
 modules\whisperhistory.lua
+modules\bags.lua
