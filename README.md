@@ -46,6 +46,15 @@ Install [wowlua-ls](https://github.com/TradeSkillMaster/wowlua-ls) and run:
 wowlua_ls check --severity hint .
 ```
 
+Enable the pre-commit hook in each checkout to run this check before commits:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+The hook checks the working tree and blocks commits if the checker reports a
+diagnostic or is not installed.
+
 The checked setup uses wowlua-ls 0.36.0. `.wowluarc.json` selects Forever's
 APIs. The command checks types, API use, and lint hints, and exits nonzero
 when it finds a diagnostic. In-game checks are still needed for visuals and
