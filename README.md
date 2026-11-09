@@ -37,3 +37,16 @@ There are no settings or dependencies.
 
 API reference: [Forever merchant API](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_APIDocumentationGenerated/MerchantFrameDocumentation.lua)
 and [Blizzard's vendor UI](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_UIPanels_Game/Mainline/MerchantFrame.lua).
+
+## Checks
+
+Install [wowlua-ls](https://github.com/TradeSkillMaster/wowlua-ls) and run:
+
+```sh
+wowlua_ls check --severity hint .
+```
+
+The checked setup uses wowlua-ls 0.36.0. `.wowluarc.json` selects Forever's
+APIs. The command checks types, API use, and lint hints, and exits nonzero
+when it finds a diagnostic. In-game checks are still needed for visuals and
+event behavior.
