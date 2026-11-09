@@ -2,8 +2,13 @@ local history = {}
 local frame = CreateFrame('Frame')
 
 frame:SetScript('OnEvent', function(_, event, ...)
+    local afk = UnitIsAFK('player')
+    if not canaccessvalue(afk) then
+        return
+    end
+
     if event == 'PLAYER_FLAGS_CHANGED' then
-        if UnitIsAFK('player') or #history == 0 then
+        if afk or #history == 0 then
             return
         end
 
@@ -18,7 +23,7 @@ frame:SetScript('OnEvent', function(_, event, ...)
         return
     end
 
-    if not UnitIsAFK('player') then
+    if not afk then
         return
     end
 
