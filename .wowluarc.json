@@ -1,3 +1,15 @@
 {
-    "flavors": ["forever"]
+    "flavors": ["forever"],
+    "diagnostics": {
+        "enable": [
+            "need-check-nil",
+            "nil-index",
+            "invalid-op",
+            "unused-function",
+            "unused-vararg",
+            "redundant-or",
+            "redundant-and",
+            "redundant-condition"
+        ]
+    }
 }

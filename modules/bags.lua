@@ -61,6 +61,7 @@ local function CompareItem(link, equipLoc)
         return
     end
 
+    ---@type table<string, number>?
     local stats = C_Item.GetItemStats(link)
     if not stats then
         return
@@ -71,6 +72,7 @@ local function CompareItem(link, equipLoc)
         if not offHand then
             itemSlots = {16}
         else
+            ---@type string?
             local offHandLoc = select(9, C_Item.GetItemInfo(offHand))
             if not offHandLoc then
                 return
@@ -127,6 +129,7 @@ local function UpdateContainer(container)
             button.prButlerArrow:Hide()
         end
 
+        ---@type ContainerItemInfo?
         local info = C_Container.GetContainerItemInfo(button:GetBagID(), button:GetID())
         if info and C_Item.GetItemInfo(info.hyperlink) then
             if not button.prButlerUnusable then

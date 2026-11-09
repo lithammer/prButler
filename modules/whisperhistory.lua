@@ -15,7 +15,7 @@ frame:SetScript('OnEvent', function(_, event, ...)
         DEFAULT_CHAT_FRAME:AddMessage('Whispers received while AFK:', 0, 1, 0)
 
         for _, entry in ipairs(history) do
-            local color = ChatTypeInfo[entry.chatType]
+            local color = assert(ChatTypeInfo[entry.chatType], 'Missing whisper chat color')
             DEFAULT_CHAT_FRAME:AddMessage(entry.text, color.r, color.g, color.b)
         end
 
