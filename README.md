@@ -1,18 +1,20 @@
-# Module information:
+# prButler
 
-`acceptlootwindow.lua` Automatically accept disenchant window and when looting uncommon loot
+Sells junk automatically when you open a vendor in World of Warcraft Forever
+(client 1.60.1, interface 16001).
 
-`compare.lua` Enforces compare tooltips, especially useful when clicking links from chat window
+Uses the game's own sell-all-junk action, with the same item rules as the
+vendor's **Sell All Junk** button. It runs only when the game enables that
+action and there are junk items to sell.
 
-`errors.lua` Filters useless/annoying error messages
+Copy the `prButler` folder into `_forever_/Interface/AddOns/`, then enable
+prButler in the character selection screen's AddOns list. Open a vendor with
+a grey item in your bags to check that it sells; keep a white or better item
+alongside it to check that it stays.
 
-`invite.lua` Automatically accept group invite from guildies and friends
+Only `modules/merchant.lua` loads. The other Lua files are legacy features
+and stay disabled while they await review for Forever. There are no settings
+or dependencies.
 
-`loot.lua` Adds a link loot button on the loot frame, links to group/raid chat
-
-`merchant.lua` Sells greys and repairs all items when visiting a vendor and prints details
-
-`specswitchfilter.lua` Filters out the annoying "gained a new ability..." spam when switching specs
-and compresses it to a nice one-line message
-
-`aurasource.lua` Display the caster of buffs on the tooltip
+API reference: [Forever merchant API](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_APIDocumentationGenerated/MerchantFrameDocumentation.lua)
+and [Blizzard's vendor UI](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_UIPanels_Game/Mainline/MerchantFrame.lua).

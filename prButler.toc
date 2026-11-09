@@ -1,16 +1,6 @@
-## Interface: 70000
+## Interface: 16001
 ## Title: |cff669933pr|rButler
-## Version: 1.00
+## Version: 2.00
+## Notes: Sells junk when you visit a vendor in World of Warcraft Forever.
 
-prButler.lua
-Config.lua
-
-modules\acceptlootwindow.lua
-modules\aurasource.lua
-modules\compare.lua
-modules\errors.lua
-modules\invite.lua
-modules\loot.lua
 modules\merchant.lua
-modules\specswitchfilter.lua
-modules\whisperhistory.lua
