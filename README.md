@@ -12,9 +12,10 @@ prButler in the character selection screen's AddOns list. Open a vendor with
 a grey item in your bags to check that it sells; keep a white or better item
 alongside it to check that it stays.
 
-Only `modules/merchant.lua` loads. The other Lua files are legacy features
-and stay disabled while they await review for Forever. There are no settings
-or dependencies.
+Only `modules/merchant.lua` loads. There are no settings or dependencies.
+
+`modules/whisperhistory.lua` is kept for a future Forever update and does not
+load.
 
 API reference: [Forever merchant API](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_APIDocumentationGenerated/MerchantFrameDocumentation.lua)
 and [Blizzard's vendor UI](https://github.com/Gethe/wow-ui-source/blob/forever/Interface/AddOns/Blizzard_UIPanels_Game/Mainline/MerchantFrame.lua).
