@@ -1,6 +1,7 @@
 ## Interface: 16001
 ## Title: |cff669933pr|rButler
 ## Version: 2.00
-## Notes: Sells junk when you visit a vendor in World of Warcraft Forever.
+## Notes: Sells vendor junk and shows whispers received while AFK in WoW Forever.
 
 modules\merchant.lua
+modules\whisperhistory.lua
