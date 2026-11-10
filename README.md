@@ -9,6 +9,9 @@ Small conveniences for World of Warcraft Forever.
   Tradeoffs show no arrow, and effects and set bonuses are not scored.
 - **Merchant:** Sells junk automatically when you open a vendor, using the
   game's sell-all-junk action.
+- **Copy chat:** Click the note icon on the left of a chat window to copy its retained
+  messages with Ctrl+C, including `/dump` output. Escape closes the copy window.
+  Colors and link markup are removed; link text and line breaks remain.
 - **Whisper history:** Shows character and Battle.net whispers received while
   AFK when you return, with clickable sender names. The backlog clears after
   it is shown or the UI reloads.

@@ -2,8 +2,9 @@
 ## Title: |cff669933pr|rButler
 ## Version: 2.00
 ## IconTexture: Interface\Icons\INV_Misc_PocketWatch_01
-## Notes: Bag item hints, vendor junk selling, and AFK whisper history for WoW Forever.
+## Notes: Bag item hints, chat copying, vendor junk selling, and AFK whisper history for WoW Forever.
 
 modules\merchant.lua
 modules\whisperhistory.lua
+modules\chatcopy.lua
 modules\bags.lua
