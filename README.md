@@ -10,9 +10,9 @@ Small conveniences for World of Warcraft Forever.
 - **Merchant:** Sells junk automatically when you open a vendor, using the
   game's sell-all-junk action.
 - **Copy chat:** Adds a button on the left of the chat window to copy chat history.
-- **Chat labels:** Hides channel numbers and zone or language suffixes, so
-  `[1. General - Orgrimmar]` becomes `[General]` and
-  `[2. Trade - English 2]` becomes `[Trade]`. Keeps chat colors and links.
+- **Chat labels:** Uses `[G: Orgrimmar]` for General, `[LD: Orgrimmar]` for
+  LocalDefense, `[G]` for Guild, and `[T]` for Trade. Hides channel numbers
+  and keeps chat colors and links. Zone names follow the channel.
 - **Whisper history:** Shows character and Battle.net whispers received while
   AFK when you return, with clickable sender names. The backlog clears after
   it is shown or the UI reloads.
