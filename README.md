@@ -6,8 +6,7 @@ Small conveniences for World of Warcraft Forever.
   in Blizzard's bags.
 - **Stat hints:** Shows gear upgrades and downgrades with a Warlock leveling
   profile and conservative stat comparisons for other gear and classes.
-- **Merchant:** Sells junk automatically when you open a vendor, using the
-  game's sell-all-junk action.
+- **Merchant:** Automatically sells junk and repairs items at vendors.
 - **Copy chat:** Adds a button on the left of the chat window to copy chat history.
 - **Chat labels:** Uses `[G: Orgrimmar]` for General, `[LD: Orgrimmar]` for
   LocalDefense, `[G]` for Guild, `[T]` for Trade, and `[TS]` for Trade (Services).
