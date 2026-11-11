@@ -1,3 +1,6 @@
+local _, addon = ...
+local _, class = UnitClass('player')
+
 local slots = {
     INVTYPE_HEAD = {1},
     INVTYPE_NECK = {2},
@@ -31,29 +34,6 @@ local oneHand = {
     INVTYPE_WEAPONMAINHAND = true,
     INVTYPE_WEAPONOFFHAND = true,
 }
-
-local function CompareStats(stats, equippedStats)
-    local better, worse = false, false
-
-    for stat, value in pairs(stats) do
-        local equippedValue = equippedStats[stat] or 0
-        better = better or value > equippedValue
-        worse = worse or value < equippedValue
-    end
-
-    for stat, value in pairs(equippedStats) do
-        if stats[stat] == nil then
-            better = better or value < 0
-            worse = worse or value > 0
-        end
-    end
-
-    if better and not worse then
-        return true
-    elseif worse and not better then
-        return false
-    end
-end
 
 local function CompareItem(link, equipLoc)
     local itemSlots = slots[equipLoc]
@@ -110,7 +90,7 @@ local function CompareItem(link, equipLoc)
             end
         end
 
-        local comparison = CompareStats(stats, equippedStats)
+        local comparison = addon.CompareItemStats(stats, equippedStats, class, equipLoc)
         upgrade = upgrade or comparison == true
         downgrade = downgrade and comparison == false
     end

@@ -4,9 +4,8 @@ Small conveniences for World of Warcraft Forever.
 
 - **Unusable items:** Tints items you cannot use with a transparent red overlay
   in Blizzard's bags.
-- **Stat hints:** A green up arrow means no numeric stat is worse and at least
-  one is better than compatible equipped gear; red down means the reverse.
-  Tradeoffs show no arrow, and effects and set bonuses are not scored.
+- **Stat hints:** Shows gear upgrades and downgrades with a Warlock leveling
+  profile and conservative stat comparisons for other gear and classes.
 - **Merchant:** Sells junk automatically when you open a vendor, using the
   game's sell-all-junk action.
 - **Copy chat:** Adds a button on the left of the chat window to copy chat history.
