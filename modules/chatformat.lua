@@ -10,6 +10,10 @@ function ChatFrameUtil.ResolvePrefixedChannelName(channelName)
     name = name:gsub('^General %- ', 'G: ')
     name = name:gsub('^LocalDefense %- ', 'LD: ')
 
+    if name == 'Trade (Services)' or name:match('^Trade %(Services%) %- ') then
+        return 'TS'
+    end
+
     if name == 'Trade' or name:match('^Trade %- ') then
         return 'T'
     end
